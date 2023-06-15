@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_content_action_sections",
+  "info": {
+    "displayName": "action_section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.paragraph-with-image"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.button"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.text"
+    }
+  }
+}

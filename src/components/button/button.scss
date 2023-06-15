@@ -1,0 +1,104 @@
+@import '../../styles/variables';
+
+.component__button {
+	display: grid;
+	place-items: center;
+
+	width: $button-width;
+	height: $button-height;
+
+	&.component__button--fullwidth {
+		width: 100%;
+		button {
+			&:active {
+				height: $button-height-active;
+				width: 97%;
+			}
+		}
+	}
+
+	&.component__button--flexible {
+		width: fit-content;
+		button {
+			padding-inline: $padding-body;
+
+			&:active {
+				height: $button-height-active;
+				width: fit-content;
+			}
+		}
+	}
+
+	button {
+		height: inherit;
+		width: inherit;
+		border-radius: 0.5rem;
+		border: none;
+
+		&[class*='--white'] {
+			outline: 2px solid $color-white;
+			.component__text {
+				color: $color-white;
+			}
+		}
+
+		outline: 2px solid $color-primary-1100;
+		background-color: transparent;
+		left: 0;
+		top: 0;
+		cursor: pointer;
+		transition: all $global-transition;
+
+		&:hover {
+			&[class*='--white'] {
+				background-color: $color-white;
+				.component__text {
+					color: $color-black;
+				}
+			}
+
+			background-color: $color-primary-100;
+		}
+
+		&:active {
+			background-color: $color-primary-1100;
+			outline: none;
+			height: $button-height-active;
+			width: $button-width-active;
+			.component__text {
+				color: $color-white;
+			}
+		}
+
+		&[class*='--filled'] {
+			&[class*='--white'] {
+				background: $color-white;
+				.component__text {
+					color: $color-black;
+				}
+			}
+
+			background-color: $color-primary-1100;
+			outline: none;
+
+			.component__text {
+				color: $color-white;
+			}
+
+			&:hover {
+				background-color: $color-primary-1500;
+				&[class*='--white'] {
+					background-color: $color-white-800;
+				}
+			}
+
+			&:active {
+				&[class*='--white'] {
+					background-color: $color-white-1100;
+				}
+
+				background-color: $color-primary-1100;
+			}
+		}
+	}
+}

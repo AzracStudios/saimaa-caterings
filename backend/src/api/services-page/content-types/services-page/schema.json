@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "services_pages",
+  "info": {
+    "singularName": "services-page",
+    "pluralName": "services-pages",
+    "displayName": "Our Services",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "services": {
+      "type": "dynamiczone",
+      "components": [
+        "content.card-container",
+        "content.paragraph-with-image",
+        "content.paragraph",
+        "content.title",
+        "content.seperator",
+        "content.text",
+        "content.complex-card-container"
+      ]
+    },
+    "seo": {
+      "type": "dynamiczone",
+      "components": [
+        "seo.description",
+        "seo.title",
+        "seo.url"
+      ]
+    }
+  }
+}

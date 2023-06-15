@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_content_simple_texts",
+  "info": {
+    "displayName": "Simple text"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

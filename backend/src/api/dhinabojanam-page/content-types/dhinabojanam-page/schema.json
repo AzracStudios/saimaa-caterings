@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "dhinabojanam_pages",
+  "info": {
+    "singularName": "dhinabojanam-page",
+    "pluralName": "dhinabojanam-pages",
+    "displayName": "Dhinabojanam",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dhinabojanam": {
+      "type": "dynamiczone",
+      "components": [
+        "content.paragraph-with-image",
+        "content.seperator",
+        "content.paragraph",
+        "content.image",
+        "content.title",
+        "content.text",
+        "content.card-container",
+        "contact.contact-card-container"
+      ]
+    },
+    "seo": {
+      "type": "dynamiczone",
+      "components": [
+        "seo.description",
+        "seo.title",
+        "seo.url"
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_content_texts",
+  "info": {
+    "displayName": "text",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "regular",
+        "medium",
+        "bold"
+      ],
+      "default": "regular"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "default": "m"
+    },
+    "centered": {
+      "type": "boolean"
+    },
+    "fancy": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

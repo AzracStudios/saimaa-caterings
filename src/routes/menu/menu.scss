@@ -1,0 +1,123 @@
+@import '../../styles/variables';
+.head {
+	width: 50%;
+	margin-inline: auto;
+	margin-bottom: 1rem;
+	@media (width< $media-tablet) {
+		width: 80%;
+	}
+}
+
+input[type='text'],
+input[type='date'] {
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	border-radius: $border-radius;
+	outline: none;
+	border: 2px solid $color-primary-1100;
+	background: $color-white;
+	width: 100%;
+	color: $color-black;
+}
+
+input[type='date'] {
+	width: fit-content;
+	font-size: 1rem;
+	padding: 0.2rem;
+}
+
+.dayInput {
+	width: 100%;
+	.day {
+		outline: 2px solid $color-primary;
+		border-radius: $border-radius;
+		padding: 1rem;
+		width: 80%;
+		margin-inline: auto;
+		margin-block: 1rem;
+
+		.row {
+			align-items: center;
+		}
+
+		.sec-row {
+			margin-top: 0.5rem;
+			gap: 2rem;
+			flex-wrap: wrap;
+			.item-col {
+				display: flex;
+				flex-direction: column;
+				input[type='number'] {
+					padding: 0.2rem;
+					font-size: 0.9rem;
+					border-radius: $border-radius;
+					outline: none;
+					border: 2px solid $color-primary-1100;
+					background: $color-white;
+					width: 100%;
+					color: $color-black;
+				}
+			}
+		}
+	}
+
+	.btn {
+		width: fit-content;
+		margin-inline: auto;
+	}
+}
+
+.inp {
+	width: calc(50% - 1rem);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.menu {
+	width: fit-content;
+	margin-inline: auto;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	padding: 1rem;
+}
+
+.form {
+	width: fit-content;
+	margin-inline: auto;
+	padding: 1rem;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+.row {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.sec-row {
+	display: grid;
+	gap: $global-spacing;
+	width: 100%;
+	grid-template-columns: repeat(auto-fit, max(20%, 100px));
+	align-items: start;
+}
+
+.item-row {
+	display: flex;
+	gap: 0.2rem;
+	align-items: start;
+	input {
+		margin-top: 0.3rem;
+	}
+}
+
+.submit {
+    width: fit-content;
+    margin-inline: auto;
+    margin-block: 2rem; 
+}

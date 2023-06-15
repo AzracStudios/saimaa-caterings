@@ -1,0 +1,104 @@
+@import '../../styles/variables';
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: clamp(0.5rem, 2vh, 15px);
+
+	.hero__banner {
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		aspect-ratio: $banner-aspect;
+		border-radius: $border-radius;
+		box-shadow: $box-shadow;
+
+		.banner__image {
+			width: 100%;
+			position: absolute;
+			aspect-ratio: inherit;
+			border-radius: inherit;
+			transition: left $global-transition;
+
+			.banner__content {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				aspect-ratio: inherit;
+
+				.banner__action {
+					z-index: 3;
+					position: absolute;
+					padding: 1rem;
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+					width: 100%;
+
+					.banner__text {
+						width: 70%;
+						.component__text {
+							color: $color-white;
+						}
+					}	
+
+					.action__buttons {
+						display: flex;
+						gap: 1rem;
+					}
+				}
+
+				.banner__gradient {
+					z-index: 2;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+				}
+
+				.image {
+					z-index: 1;
+					aspect-ratio: inherit;
+				}
+			}
+		}
+
+		.banner__image--skeleton {
+			width: 100%;
+			aspect-ratio: inherit;
+			border-radius: inherit;
+		}
+	}
+
+	.hero__controls {
+		display: flex;
+		gap: clamp(1rem, 2vw, 30px);
+
+		.controls__button {
+			background-color: $color-white;
+			border-radius: 100%;
+			border: 0.15rem solid $color-primary;
+
+			width: $banner-control-button-size;
+			aspect-ratio: 1;
+		}
+
+		.controls__button--active {
+			background: $color-primary;
+		}
+
+		.controls__button--skeleton {
+			width: $banner-control-button-size;
+			aspect-ratio: 1;
+			border-radius: 100%;
+		}
+	}
+}
+
+@media only screen and (max-width: $media-tablet) {
+	.hero {
+		.hero__banner {
+			aspect-ratio: $banner-aspect-mobile;
+		}
+	}
+}

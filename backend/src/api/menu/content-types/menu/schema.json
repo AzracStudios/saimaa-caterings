@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "form": {
+      "type": "dynamiczone",
+      "components": [
+        "form.menu-section"
+      ]
+    },
+    "repeat": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

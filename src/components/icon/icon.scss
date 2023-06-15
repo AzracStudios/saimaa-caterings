@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.material__link {
+	line-height: 0;
+	vertical-align: middle;
+	.material-symbols-rounded {
+		color: $color-white;
+		font-display: optional;
+	}
+}
+
+@mixin setSize {
+	&[class*='--xs'] {
+		font-size: $text-size-xs;
+		width: $text-size-xs;
+	}
+
+	&[class*='--s'] {
+		font-size: $text-size-s;
+		width: $text-size-s;
+	}
+
+	&[class*='--m'] {
+		font-size: $text-size-m;
+		width: $text-size-m;
+	}
+
+	&[class*='--l'] {
+		font-size: $text-size-l;
+		width: $text-size-l;
+	}
+
+	&[class*='--xl'] {
+		font-size: $text-size-xl;
+		width: $text-size-xl;
+	}
+}
+
+[class*='material__icon'] {
+	@include setSize;
+}

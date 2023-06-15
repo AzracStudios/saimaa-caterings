@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_mini_carousels",
+  "info": {
+    "displayName": "mini_carousel",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "displayName": "mini_card",
+      "type": "component",
+      "repeatable": true,
+      "component": "content.mini-card"
+    }
+  }
+}

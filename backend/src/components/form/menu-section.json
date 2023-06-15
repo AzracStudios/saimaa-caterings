@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_form_menu_sections",
+  "info": {
+    "displayName": "menu_section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "text"
+    }
+  }
+}

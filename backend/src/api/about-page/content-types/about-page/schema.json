@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "about": {
+      "type": "dynamiczone",
+      "components": [
+        "content.title",
+        "content.paragraph-with-image",
+        "content.image",
+        "content.seperator",
+        "content.paragraph",
+        "content.text"
+      ]
+    },
+    "seo": {
+      "type": "dynamiczone",
+      "components": [
+        "seo.description",
+        "seo.title",
+        "seo.url"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_complex_card_containers",
+  "info": {
+    "displayName": "Complex card container",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.complex-card"
+    }
+  }
+}

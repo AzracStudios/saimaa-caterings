@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_configs",
+  "info": {
+    "singularName": "global-config",
+    "pluralName": "global-configs",
+    "displayName": "Global Config",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact.social"
+    },
+    "phone": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact.phone"
+    },
+    "address": {
+      "type": "text"
+    },
+    "email": {
+      "type": "string"
+    },
+    "favicon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

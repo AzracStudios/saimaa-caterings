@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigation_links",
+  "info": {
+    "singularName": "navigation-link",
+    "pluralName": "navigation-links",
+    "displayName": "Navigation Links",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "links": {
+      "displayName": "link",
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link"
+    }
+  }
+}

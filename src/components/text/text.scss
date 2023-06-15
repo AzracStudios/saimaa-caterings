@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+a {
+	text-decoration: underline;
+	color: $color-accent;
+}
+
+.component__text {
+	color: $color-black;
+}
+
+.link {
+	color: $color-accent;
+}
+
+[class*='-regular'] {
+	font-weight: normal;
+}
+
+[class*='-medium'] {
+	font-weight: 500;
+}
+
+[class*='-bold'] {
+	font-weight: bold;
+}
+
+[class*='--xs'] {
+	font-size: $text-size-xs;
+}
+
+[class*='--s'] {
+	font-size: $text-size-s;
+}
+
+[class*='--m'] {
+	font-size: $text-size-m;
+}
+
+[class *= '--f'] {
+	font-size: 1.3rem;
+}
+
+[class*='--l'] {
+	font-size: $text-size-l;
+}
+
+[class*='--xl'] {
+	font-size: $text-size-xl;
+}
+
+[class*='--fancy'] {
+	font-size: clamp(35px, 3vw, 3rem);
+	font-family: 'Poppins', sans-serif;
+	color: #f4b43f;
+	font-weight: bold;
+}

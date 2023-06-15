@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.element__contact-banner {
+	background: $color-primary-1100;
+	padding: 1rem;
+	border-radius: $border-radius;
+
+	.component__text {
+		color: $color-white;
+	}
+
+	.breaker {
+		position: relative;
+		margin-block: 2rem;
+		background: inherit;
+
+		.line {
+			height: 2px;
+			width: 30%;
+			margin-inline: auto;
+			background-color: $color-break;
+			position: relative;
+			top: 1px;
+		}
+
+		.component__text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			translate: -50% -50%;
+			width: fit-content;
+			height: fit-content;
+			background: inherit;
+			padding-inline: 0.5rem;
+		}
+	}
+
+	.socials {
+		margin-inline: auto;
+
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		.image {
+			cursor: pointer;
+			width: 2rem;
+			height: 2rem;
+		}
+	}
+
+	.number__container {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		width: fit-content;
+		margin-inline: auto;
+		justify-content: center;
+	}
+}

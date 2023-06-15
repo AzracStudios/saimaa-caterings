@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 800 800"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="saimaa_logo_embelem.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview998"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.50600449"
+     inkscape:cx="370.55007"
+     inkscape:cy="438.73129"
+     inkscape:window-width="1339"
+     inkscape:window-height="734"
+     inkscape:window-x="27"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs993" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g163"
+       style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       transform="matrix(0.24552661,0,0,0.23964821,-40.929576,-141.87664)">
+    
+    <g
+   id="g470">
+  <path
+     class="fil0"
+     d="M 292,1933 C 507,978 1477,672 2101,805 c 0,158 0,316 0,474 111,193 221,386 332,578 67,-105 135,-210 202,-316 519,434 364,1083 -15,1443 -56,-70 -112,-140 -169,-210 249,-227 360,-518 201,-777 -79,129 -157,258 -236,386 -103,-187 -205,-374 -308,-561 0,469 0,938 0,1407 -81,16 -162,33 -243,49 0,-745 0,-1489 0,-2234 -613,45 -1215,273 -1337,1032 -106,663 320,1121 827,1291 0,102 0,204 0,307 C 671,3441 98,2800 292,1933 Z"
+     id="path157"
+     style="fill:#a5bb27" />
+  <path
+     class="fil1"
+     d="m 905,2102 c 80,-282 277,-460 573,-549 0,84 0,167 0,250 87,0 174,0 261,0 0,-195 0,-390 0,-584 -795,97 -1122,516 -1105,1173 287,0 575,0 863,0 0,186 0,373 0,559 -183,-34 -319,-130 -433,-255 -107,0 -213,0 -320,0 171,276 407,473 746,543 0,157 0,315 0,473 605,76 1147,-67 1570,-619 337,-472 332,-919 173,-1356 -180,-494 -568,-771 -994,-906 0,95 0,191 0,287 447,163 872,569 860,1168 -15,788 -789,1207 -1372,1164 0,-449 0,-898 0,-1348 -274,0 -548,0 -822,0 z"
+     id="path159"
+     style="fill:#f6c000" />
+</g>
+
+    
+   </g>
+  </g>
+</svg>

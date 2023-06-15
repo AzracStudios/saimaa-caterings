@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_testimoinal_containers",
+  "info": {
+    "displayName": "testimonial-container",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "testimonial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.testimonial"
+    }
+  }
+}

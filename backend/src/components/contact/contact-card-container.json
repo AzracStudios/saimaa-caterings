@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_contact_contact_card_containers",
+  "info": {
+    "displayName": "contact-card-container"
+  },
+  "options": {},
+  "attributes": {
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact.phone"
+    }
+  }
+}
