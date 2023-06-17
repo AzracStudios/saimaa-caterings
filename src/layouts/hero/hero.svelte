@@ -8,6 +8,7 @@
 	import { fetchBanners } from '../../lib-wrapper/useAxios';
 	import { get } from 'svelte/store';
 	import type { StrapiBanner } from '../../lib-wrapper/types';
+	import { sleep } from '../../lib-wrapper/utils';
 
 	let banners: StrapiBanner[];
 	$: banners = [];
@@ -30,9 +31,9 @@
 
 		bannerImages.set(banners);
 		bannerImageLen = banners.length;
-
 		if (get(intervalId)) clearInterval(get(intervalId));
 
+		await sleep(6000);
 		triggerInterval.set(true);
 
 		triggerInterval.subscribe((val) => {

@@ -36,6 +36,9 @@
 	let dayBasedRequirements: any = [];
 	$: dayBasedRequirements;
 
+	let miscRequirements: any = [];
+	$: miscRequirements;
+
 	const renderForm = () => {
 		let x = 0;
 		for (let key in dataToSubmit.customerInfo) {
@@ -47,7 +50,11 @@
 		let _ = structuredClone(temp);
 		formData.repeatable = [];
 
+		let days = 0;
+
 		for (let i = 0; i < dayBasedRequirements.length; i++) {
+			if (!dayBasedRequirements[i].selected) continue;
+			days += 1;
 			let toPush: any = [];
 			let elem = dayBasedRequirements[i].selection;
 			for (let req in elem) {
@@ -69,6 +76,8 @@
 			formData.repeatable.push(toPush);
 		}
 
+		if (days == 0) return alert('Selected atleast 1 day to continue');
+
 		displayForm = true;
 	};
 
@@ -76,6 +85,27 @@
 		temp = await loadForm();
 		temp.repeatable = [temp.repeatable];
 		formData = structuredClone(temp);
+
+		for (let i = 0; i < 3; i++) {
+			dayBasedRequirements.push({
+				date: null,
+				selected: false,
+				selection: {
+					breakfast: { selected: false, headCount: 0, bind: 'Breakfast' },
+					lunch: { selected: false, headCount: 0, bind: 'Lunch' },
+					welcome_juice: { selected: false, headCount: 0, bind: 'Welcome Juice' },
+					snacks: { selected: false, headCount: 0, bind: 'Evening Snacks' },
+					dinner: { selected: false, headCount: 0, bind: 'Dinner' }
+				}
+			});
+
+			dayBasedRequirements = dayBasedRequirements;
+		}
+
+		miscRequirements = temp.once.map((e: any) => {
+			e.selected = false;
+			return e;
+		});
 	});
 </script>
 
@@ -92,7 +122,11 @@
 		</div>
 
 		{#if !displayForm}
-			<Text text="Enter your details and add days to continue" style="m-bold" alignment="center" />
+			<Text
+				text="Enter your details and select days to continue"
+				style="m-bold"
+				alignment="center"
+			/>
 			<div class="vspace vspace--small" />
 		{/if}
 
@@ -107,6 +141,7 @@
 				<input type="text" required bind:value={dataToSubmit.customerInfo.phone} />
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="inp">
 				<Text text="Event" style="s-bold" />
@@ -121,74 +156,79 @@
 		</div>
 
 		<div class="vspace vspace--small" />
+
 		<div class="dayInput">
 			{#each dayBasedRequirements as req, _}
 				<div class="day">
 					<div class="row">
+						<input
+							type="checkbox"
+							on:change={() => {
+								dayBasedRequirements[_].selected = !dayBasedRequirements[_].selected;
+							}}
+						/>
 						<Text text="Day {_ + 1}" style="s-bold" />
-						<input type="date" bind:value={dayBasedRequirements[_].date} />
+						{#if dayBasedRequirements[_].selected}
+							<input type="date" bind:value={dayBasedRequirements[_].date} />
+						{/if}
 					</div>
-					<div class="sec-row" style="display: flex">
-						{#each Object.keys(req.selection) as sReq}
-							<div class="item-col">
-								<div class="item-row">
-									<input
-										type="checkbox"
-										on:change={() => {
-											dayBasedRequirements[_].selection[sReq].selected =
-												!dayBasedRequirements[_].selection[sReq].selected;
-										}}
-									/>
-									<Text text={sReq} style="s-medium" alignment="left" cap />
-								</div>
-
+					{#if dayBasedRequirements[_].selected}
+						<div class="sec-row" style="display: flex">
+							{#each Object.keys(req.selection) as sReq}
 								<div class="item-col">
-									{#if dayBasedRequirements[_].selection[sReq].selected}
-										<Text text="Head Count" style="xs-medium" />
+									<div class="item-row">
 										<input
-											type="number"
-											style="width: 5rem"
-											bind:value={dayBasedRequirements[_].selection[sReq].headCount}
+											type="checkbox"
+											on:change={() => {
+												dayBasedRequirements[_].selection[sReq].selected =
+													!dayBasedRequirements[_].selection[sReq].selected;
+											}}
 										/>
-									{/if}
+										<Text text={sReq.replace('_', ' ')} style="s-medium" alignment="left" cap />
+									</div>
+
+									<div class="item-col">
+										{#if dayBasedRequirements[_].selection[sReq].selected}
+											<Text text="Head Count" style="xs-medium" />
+											<input
+												type="number"
+												min="0"
+												style="width: 5rem"
+												bind:value={dayBasedRequirements[_].selection[sReq].headCount}
+											/>
+										{/if}
+									</div>
 								</div>
-							</div>
-						{/each}
+							{/each}
+						</div>
+					{/if}
+				</div>
+			{/each}
+		</div>
+
+		<div class="vspace vspace--small" />
+
+		<div class="row row--small">
+			{#each miscRequirements as m, _}
+				<div class="misc">
+					<div class="row">
+						<input
+							type="checkbox"
+							on:change={() => {
+								miscRequirements[_].selected = !miscRequirements[_].selected;
+							}}
+						/>
+						<Text text={m.title} style="s-bold" />
 					</div>
 				</div>
 			{/each}
-			<div class="btn">
-				<Interactable
-					onclick={() => {
-						dayBasedRequirements.push({
-							date: null,
-							selection: {
-								breakfast: { selected: false, headCount: 50, bind: 'Breakfast' },
-								lunch: { selected: false, headCount: 50, bind: 'Lunch' },
-								snacks: { selected: false, headCount: 50, bind: 'Evening Snacks' },
-								dinner: { selected: false, headCount: 50, bind: 'Dinner' }
-							}
-						});
-
-						dayBasedRequirements = dayBasedRequirements;
-					}}
-				>
-					<Button text="Add Day" style="s-bold" />
-				</Interactable>
-			</div>
 		</div>
 
 		<div class="vspace vspace--medium" />
 		{#if dayBasedRequirements.length > 0}
 			<Interactable onclick={renderForm}>
 				<div style="width: fit-content; margin-inline: auto">
-					<Button
-						text="Select Menu For {dayBasedRequirements.length} {dayBasedRequirements.length == 1
-							? 'Day'
-							: 'Days'}"
-						style="s-bold"
-						flexible
-					/>
+					<Button text="Select Menu" style="s-bold" flexible />
 				</div>
 			</Interactable>
 		{/if}
@@ -239,37 +279,40 @@
 				<div class="vspace vspace--medium" />
 			{/each}
 			{#each formData.once as onceData, onceIndex}
-				<Text text={onceData.title} style="m-bold" />
-				<div class="vspace vspace--small" />
-				{#each onceData.sections as sec, secIndex}
-					{#if sec.title}
-						<Text text={sec.title} style="f-medium" />
-						<div class="vspace vspace--xsmall" />
-					{/if}
-					<div class={onceData.title == 'Other Arrangements' ? '' : 'sec-row'}>
-						{#each sec.options as opt, optIndex}
-							<div class="item-row">
-								<input
-									type="checkbox"
-									on:change={() => {
-										formData.once[onceIndex].sections[secIndex].options[optIndex].selected =
-											!formData.once[onceIndex].sections[secIndex].options[optIndex].selected;
-									}}
-									disabled={!displayForm}
-								/>
-								<Text text={opt.value} style="s-medium" alignment="left" />
-							</div>
-						{/each}
-					</div>
+				{#if miscRequirements[onceIndex].selected}
+					<Text text={onceData.title} style="m-bold" />
 					<div class="vspace vspace--small" />
-					<div class="vspace vspace--small" />
-				{/each}
+					{#each onceData.sections as sec, secIndex}
+						{#if sec.title}
+							<Text text={sec.title} style="f-medium" />
+							<div class="vspace vspace--xsmall" />
+						{/if}
+						<div class={onceData.title == 'Other Arrangements' ? '' : 'sec-row'}>
+							{#each sec.options as opt, optIndex}
+								<div class="item-row">
+									<input
+										type="checkbox"
+										on:change={() => {
+											formData.once[onceIndex].sections[secIndex].options[optIndex].selected =
+												!formData.once[onceIndex].sections[secIndex].options[optIndex].selected;
+										}}
+										disabled={!displayForm}
+									/>
+									<Text text={opt.value} style="s-medium" alignment="left" />
+								</div>
+							{/each}
+						</div>
+						<div class="vspace vspace--small" />
+						<div class="vspace vspace--small" />
+					{/each}
+				{/if}
 			{/each}
 		</div>
 
 		<div class="submit">
 			<Interactable
 				onclick={() => {
+					if (!(displayForm && (formData.once || formData.repeatable))) return;
 					dataToSubmit.menu = formData;
 					pushForm(dataToSubmit);
 				}}

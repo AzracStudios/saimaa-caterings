@@ -12,6 +12,7 @@ import { fakeData } from './fakeData';
 
 export const fetchBanners = async (): Promise<StrapiBanner[]> => {
 	const data = await axios.get(`${BACKEND_URL}/api/banners?populate=*`);
+	console.log(data)
 	return [
 		...data.data.data.map((e: any): StrapiBanner => {
 			return {
@@ -32,7 +33,7 @@ export const fetchGallery = async (): Promise<StrapiPage> => {
 			...data.data.data.attributes.images.data.map((e: any): StrapiImageLOD => {
 				return {
 					high: { src: `${BACKEND_URL}${e.attributes.url}` },
-					low: { src: `${BACKEND_URL}${e.attributes.formats.small.url}` }
+					low: { src: `${BACKEND_URL}${e.attributes.formats.thumbnail.url}` }
 				};
 			})
 		],
@@ -123,7 +124,7 @@ export const postContactMessage = async (
 
 export async function loadForm() {
 	const form = { repeatable: <any>[], once: <any>[] };
-	let data: any = await axios.get(`${BACKEND_URL}/api/menus?populate[form]=*`);
+	let data: any = await axios.get(`${BACKEND_URL}/api/menus?populate[form]=*&sort=rank:asc`);
 
 	data = data.data.data;
 
@@ -149,15 +150,61 @@ export async function loadForm() {
 }
 
 export async function pushForm(formData: any) {
-	// let formData = fakeData;
-	let data: any = "";
-	data += `
-	Customer Name:, ${formData.customerInfo.name}
-	Customer Phone:, ${formData.customerInfo.phone}
-	Event:, ${formData.customerInfo.eventType}
-	Venue:, ${formData.customerInfo.eventVenue}
-	=====,=====`
-	
+	alert("Thankyou for contacting us! We will get back to you as soon as possible")
+	let data: any = '';
+	data += `Customer Name, ${formData.customerInfo.name}
+Customer Phone, ${formData.customerInfo.phone}
+Event, ${formData.customerInfo.eventType}
+Venue, ${formData.customerInfo.eventVenue}\n\n\n`;
 
-	console.log(formData)
+	for (let j = 0; j < formData.menu.repeatable.length; j++) {
+		data += `Day ${j + 1} - ${formData.menu.repeatable[j][0].date}\n\n`;
+
+		for (let i = 0; i < formData.menu.repeatable[j].length; i++) {
+			const elem = formData.menu.repeatable[j][i];
+			console.log(elem);
+
+			data += `${elem.title} - ${elem.headCount} people\n\n`;
+			console.log(elem);
+			for (let y = 0; y < elem.sections.length; y++) {
+				let elemSec = elem.sections[y];
+				let temp = '';
+
+				for (let m = 0; m < elemSec.options.length; m++) {
+					if (!elemSec.options[m].selected) continue;
+					temp += `${elemSec.options[m].value}\n`;
+				}
+
+				if (temp.length != 0)
+					data += `${'-'.repeat((elemSec.title || elem.title).length)}\n${
+						elemSec.title || elem.title
+					}\n${'-'.repeat((elemSec.title || elem.title).length)}\n${temp}\n`;
+			}
+		}
+	}
+
+	data += '\n';
+
+	for (let j = 0; j < formData.menu.once.length; j++) {
+		let elem = formData.menu.once[j];
+		for (let y = 0; y < elem.sections.length; y++) {
+			let elemSec = elem.sections[y];
+			let temp = '';
+
+			for (let m = 0; m < elemSec.options.length; m++) {
+				if (!elemSec.options[m].selected) continue;
+				temp += `${elemSec.options[m].value}\n`;
+			}
+
+			if (temp.length != 0)
+				data += `${'-'.repeat((elemSec.title || elem.title).length)}\n${
+					elemSec.title || elem.title
+				}\n${'-'.repeat((elemSec.title || elem.title).length)}\n${temp}\n`;
+		}
+	}
+
+	await axios.post(`${BACKEND_URL}/api/send-email`, {
+		filename: `${formData.customerInfo.name} - ${formData.customerInfo.eventType}.csv`,
+		fileContent: data
+	});
 }

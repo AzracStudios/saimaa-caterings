@@ -24,6 +24,10 @@
     "repeat": {
       "type": "boolean",
       "default": true
+    },
+    "rank": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

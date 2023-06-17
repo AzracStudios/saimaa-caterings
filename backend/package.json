@@ -16,6 +16,8 @@
 		"@strapi/admin": "^4.10.7",
 		"@strapi/plugin-i18n": "4.9.0",
 		"@strapi/plugin-users-permissions": "4.9.0",
+		"@strapi/provider-email-nodemailer": "^4.11.1",
+		"@strapi/provider-upload-local": "^4.11.1",
 		"@strapi/strapi": "4.9.0",
 		"better-sqlite3": "8.0.1",
 		"patch-package": "^7.0.0",

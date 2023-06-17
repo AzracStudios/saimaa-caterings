@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Button from '../../components/button/button.svelte';
 	import Mobileonly from '../../components/conditionalview/mobileonly.svelte';
 	import Interactable from '../../components/interactable.svelte';
 	import Text from '../../components/text/text.svelte';
@@ -38,6 +39,15 @@
 					</Interactable>
 				{/each}
 			{/if}
+			<Interactable
+				onclick={() => {
+					handleClick();
+
+					goto('/menu');
+				}}
+			>
+				<Button text="Get A Quote" style="s-medium" filled />
+			</Interactable>
 		</div>
 	</div>
 </Mobileonly>

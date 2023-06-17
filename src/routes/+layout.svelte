@@ -21,7 +21,7 @@
 {#if global}
 	<Navbar {global} {links} />
 
-	<div class="padding-container">
+	<div class="padding-container" style="min-height: 60vh;">
 		<slot />
 	</div>
 
